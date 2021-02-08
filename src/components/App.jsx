@@ -39,9 +39,9 @@ const App = () => {
   return (
     <div>
       {/* <Accordion items={items} /> */}
-      <Dropdown onSelectedChange={setSelected}
-                selected={selected}
-                options={options} />
+        <Dropdown onSelectedChange={setSelected}
+                  selected={selected}
+                  options={options} />
       {/* <Search /> */}
     </div>
   );
