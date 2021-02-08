@@ -26,7 +26,7 @@ const Search = () => {
           format: 'json',
           srsearch: debouncedTerm
         }
-      });      
+      });
       setResults(data.query.search);
     };
     search();
@@ -53,18 +53,18 @@ const Search = () => {
       <div className="ui form">
         <div className="field">
           <label htmlFor="search">Enter search term</label>
-          <input id="search" 
-                 className="input" 
-                 type="text" 
+          <input id="search"
+                 className="input"
+                 type="text"
                  value={term}
                  onChange={e => setTerm(e.target.value)} />
         </div>
       </div>
       <div className="ui celled list">
         {renderedResuls}
-      </div>      
+      </div>
     </div>
   );
-}
- 
+};
+
 export default Search;

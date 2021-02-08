@@ -30,5 +30,5 @@ const Accordion = ({ items }) => {
   );
 
 };
- 
+
 export default Accordion;
