@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Search = () => {
@@ -9,7 +9,7 @@ const Search = () => {
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedTerm(term);
-    }, 500)
+    }, 1000)
 
     return () => {
       clearTimeout(timerId);
@@ -24,9 +24,10 @@ const Search = () => {
           list: 'search',
           origin: '*',
           format: 'json',
-          srsearch: debouncedTerm
-        }
+          srsearch: debouncedTerm,
+        },
       });
+
       setResults(data.query.search);
     };
     search();
@@ -36,7 +37,7 @@ const Search = () => {
     return (
       <div className="item" key={result.pageid}>
         <div className="right floated content">
-          <a href={`https://en.wikipedia.org?curid=${result.pageid}`} className="ui button">Read</a>
+          <a href={`https://en.wikipedia.org?curid=${result.pageid}`} className="ui green button">Read</a>
         </div>
         <div className="content">
           <div className="header">
@@ -49,21 +50,20 @@ const Search = () => {
   });
 
   return (
-    <div>
-      <div className="ui form">
-        <div className="field">
-          <label htmlFor="search">Enter search term</label>
-          <input id="search"
-                 className="input"
-                 type="text"
-                 value={term}
-                 onChange={e => setTerm(e.target.value)} />
-        </div>
+    <Fragment>
+      <div className="ui fluid icon input">
+        <input id="search"
+               className="input"
+               type="text"
+               placeholder="Enter search term"
+               value={term}
+               onChange={e => setTerm(e.target.value)} />
+        <i className="search icon"></i>
       </div>
       <div className="ui celled list">
         {renderedResuls}
       </div>
-    </div>
+    </Fragment>
   );
 };
 

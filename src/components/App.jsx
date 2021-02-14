@@ -45,7 +45,7 @@ const App = () => {
       <Route path="/">
         <Accordion items={items} />
       </Route>
-      <Route path="/list">
+      <Route path="/search-wikipedia">
         <Search />
       </Route>
       <Route path="/dropdown">
